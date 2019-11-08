@@ -24,7 +24,10 @@ namespace Gajira.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var salaryComponents = await context.SalaryComponents.ToListAsync();
+            var salaryComponents = await context.SalaryComponents
+                .OrderBy(sc=>sc.ComponentName)
+                .ToListAsync();
+                        
             return Ok(salaryComponents);
         }
 
@@ -47,7 +50,7 @@ namespace Gajira.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] SalaryComponent salaryComponent)
         {
             context.Update(salaryComponent);
@@ -57,7 +60,7 @@ namespace Gajira.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var salaryComponent = await context.SalaryComponents.FindAsync(id);

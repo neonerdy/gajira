@@ -7,7 +7,6 @@ import BranchAdd from './BranchAdd';
 import DepartmentAdd from './DepartmentAdd';
 import JobTitleAdd from './JobTitleAdd';
 import SalaryComponentAdd from './SalaryComponentAdd';
-import WorkingCalendarAdd from './WorkingCalendarAdd';
 import UserLoginAdd from './UserLoginAdd';
 
 import axios from 'axios';
@@ -32,8 +31,14 @@ class MasterData extends Component
           jobTitleName: '',
           jobTitles: [],
          
+          salaryComponentId: '',
+          salaryComponentName: '',
           salaryComponents: [],
-          workingCalendars: [],
+
+          workCalendarId: '',
+          workCalendarName: '',  
+          workCalendars: [],
+
           userLogins: []
       }
 
@@ -43,6 +48,7 @@ class MasterData extends Component
       this.getBranches();
       this.getDepartments();
       this.getJobTitles();
+      this.getSalaryComponents();
     }
 
 
@@ -152,7 +158,80 @@ class MasterData extends Component
       })
     }
 
+
     
+
+    /* SALARY COMPONENT */
+
+
+    getSalaryComponents = () => {
+      axios.get(config.serverUrl + '/api/salarycomponent/getall').then(response=> {
+        this.setState({
+          salaryComponents: response.data
+        })
+      })
+    }
+
+    addSalaryComponent = () => {
+      this.props.history.push('add-salary-component');
+    }
+
+    editSalaryComponent = (id) => {
+      this.props.history.push('/edit-salary-component/' + id);
+    }
+
+
+    deleteSalaryComponent = (id) => {
+      axios.delete(config.serverUrl + '/api/salarycomponent/delete/' + id).then(response=> {
+        this.getSalaryComponents();
+      })
+    }
+    
+
+    onDeleteSalaryComponent = (salaryComponentId, salaryComponentName) => {
+      this.setState({
+        salaryComponentId: salaryComponentId,
+        salaryComponentName: salaryComponentName
+      })
+    }
+
+
+
+
+     /* WORK CALENDAR */
+
+
+    getWorkCalendars = () => {
+      axios.get(config.serverUrl + '/api/workcalendar/getall').then(response=> {
+        this.setState({
+          workCalendars: response.data
+        })
+      })
+    }
+
+    addWorkCalendar = () => {
+      this.props.history.push('add-work-calendar');
+    }
+
+    editWorkCalendar = (id) => {
+      this.props.history.push('/edit-work-calendar/' + id);
+    }
+
+
+    deleteWorkCalendar = (id) => {
+      axios.delete(config.serverUrl + '/api/workcalendar/delete/' + id).then(response=> {
+        this.getWorkCalendars();
+      })
+    }
+    
+
+    onDeleteWorkCalendar = (workCalendarId, workCalendarName) => {
+      this.setState({
+        workCalendarId: workCalendarId,
+        workCalendarName: workCalendarName
+      })
+    }
+
 
 
 
@@ -245,6 +324,33 @@ class MasterData extends Component
                       </div>
                   </div>
             </div>
+
+
+
+            <div id="deleteSalaryComponent" class="modal fade" role="dialog">
+                
+                <div class="modal-dialog">
+                    
+                    <div class="modal-content">
+
+                          <div class="modal-header">
+                            <h4>Delete Salary Component</h4>
+                          </div>
+                          <div class="modal-body">
+                          Are you sure want to delete '{this.state.salaryComponentName}' ?
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-bold btn-pure btn-secondary" data-dismiss="modal">Close</button>
+                            <button class="btn btn-label btn-danger" onClick={()=>this.deleteSalaryComponent(this.state.salaryComponentId)} data-dismiss="modal">
+                              <label><i class="ti-check"></i></label> YES
+                            </button>
+                          </div>
+                        
+                      </div>
+                  </div>
+            </div>
+
 
 
 
@@ -381,82 +487,38 @@ class MasterData extends Component
                 
                           
                 <div class="card">
-                    <h5 class="card-title"><strong>SALARY COMPONENT (4)</strong></h5>
+                    <h5 class="card-title"><strong>SALARY COMPONENT ({this.state.salaryComponents.length})</strong></h5>
 
                     <Scrollbars  
                     style={{ height: 350 }}
                     autoHide
                 >
 
-              <div class="media-list media-list-sm media-list-hover media-list-divided" 
-                              >
+              {this.state.salaryComponents.map(sc=> 
 
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">Base Salary</a></h6>
-                  </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
+                    <div class="media-list media-list-sm media-list-hover media-list-divided">
+
+                      <div class="media media-single">
+                          <div class="media-body">
+                            <h6><a href="#">{sc.componentName}</a></h6>
+                          </div>
+                          <div class="media-right">
+                                <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px" onClick={()=>this.editSalaryComponent(sc.id)}>EDIT</a>                             
                                 &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
+                                <a href="#" data-toggle="modal" data-target="#deleteSalaryComponent" onClick={()=>this.onDeleteSalaryComponent(sc.id, sc.componentName)}>
+                                    <i class="fa fa-trash" style={{color:'red'}}/>
+                                </a>
+                                      
+                          </div>
+                      </div>
                   </div>
-              </div>
-
-
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">Transportation Allowance</a></h6>
-                  </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
-                                &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
-
-                  </div>
-              </div>
-
-
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">Communication Allowance</a></h6>
-                  </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
-                                &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
-
-                  </div>
-              </div>
-
-
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">Lunch</a></h6>
-                  </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
-                                &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
-
-                  </div>
-              </div>
-
-
-            
-
-
-
-        </div>
+                )}
 
 
         </Scrollbars>
 
         <div class="text-center bt-1 border-light p-2">
-          <a class="text-default text-uppercase d-block fs-10 fw-500 ls-1" href="#" data-toggle="modal" data-target="#addSalaryComponent">Add Salary Component</a>
+          <a class="text-default text-uppercase d-block fs-10 fw-500 ls-1" href="#" onClick={this.addSalaryComponent}>Add Salary Component</a>
         </div>
       </div>
       </div>
@@ -469,69 +531,26 @@ class MasterData extends Component
                 
                           
                 <div class="card">
-                    <h5 class="card-title"><strong>WORKING CALENDAR (4)</strong></h5>
+                    <h5 class="card-title"><strong>WORKING CALENDAR ({this.state.workCalendars.length})</strong></h5>
 
                     <Scrollbars  
                     style={{ height: 350 }}
                     autoHide
                 >
 
-              <div class="media-list media-list-sm media-list-hover media-list-divided" 
-                              >
+              <div class="media-list media-list-sm media-list-hover media-list-divided">
 
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">January 2019</a></h6>
+                  <div class="media media-single">
+                      <div class="media-body">
+                        <h6><a href="#">January 2019</a></h6>
+                      </div>
+                      <div class="media-right">
+                          <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
+                           &nbsp;&nbsp; &nbsp;&nbsp;
+                          <i class="fa fa-trash" style={{color:'red'}}/>
+                                  
+                      </div>
                   </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
-                                &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
-                  </div>
-              </div>
-
-
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">February 2019</a></h6>
-                  </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
-                                &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
-
-                  </div>
-              </div>
-
-
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">March 2019</a></h6>
-                  </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
-                                &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
-
-                  </div>
-              </div>
-
-
-              <div class="media media-single">
-                  <div class="media-body">
-                    <h6><a href="#">April 2019</a></h6>
-                  </div>
-                  <div class="media-right">
-                        <a class="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px">EDIT</a>                             
-                                &nbsp;&nbsp; &nbsp;&nbsp;
-                                <i class="fa fa-trash" style={{color:'red'}}/>
-                              
-
-                  </div>
-              </div>
 
         </div>
 
@@ -539,7 +558,7 @@ class MasterData extends Component
         </Scrollbars>
 
         <div class="text-center bt-1 border-light p-2">
-          <a class="text-default text-uppercase d-block fs-10 fw-500 ls-1" href="#" data-toggle="modal" data-target="#addWorkingCalendar">Add Working Calendar</a>
+          <a class="text-default text-uppercase d-block fs-10 fw-500 ls-1" href="#" onClick={this.addWorkCalendar}>Add Working Calendar</a>
         </div>
       </div>
       </div>

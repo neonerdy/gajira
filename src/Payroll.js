@@ -147,7 +147,9 @@ class Payroll extends Component
 
                                       
                                       
+                                        
                                         <div class="alert alert-danger" role="alert">
+                                            <h4>Ariyanto</h4>
                                             Salary : <b>12.000</b>, Deduction : <b>3.000</b>, Total : <b>9.000</b>
                                         </div>
 

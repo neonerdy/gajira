@@ -14,6 +14,8 @@ import DepartmentEdit from './DepartmentEdit';
 import JobTitleAdd from './JobTitleAdd';
 import JobTitleEdit from './JobTitleEdit';
 import SalaryComponentAdd from './SalaryComponentAdd';
+import SalaryComponentEdit from './SalaryComponentEdit';
+import WorkCalendarAdd from './WorkCalendarAdd';
 
 
 
@@ -41,8 +43,10 @@ class App extends Component
         <Route exact path="/add-jobtitle" component={JobTitleAdd}/>
         <Route exact path="/edit-jobtitle/:id" component={JobTitleEdit}/>
         <Route exact path="/add-salary-component" component={SalaryComponentAdd}/>
-                
-        
+        <Route exact path="/edit-salary-component/:id" component={SalaryComponentEdit}/>
+        <Route exact path="/add-work-calendar" component={WorkCalendarAdd}/>
+                                
+
         <Route exact path="/add-employee" component={EmployeeAdd}/>
         
         

@@ -1,0 +1,277 @@
+-- Table: public.attendances
+
+-- DROP TABLE public.attendances;
+
+CREATE TABLE public.attendances
+(
+    id uuid NOT NULL,
+    employee_id uuid,
+    month integer,
+    year integer,
+    start_date timestamp without time zone,
+    end_date timestamp without time zone,
+    work_day integer,
+    leave_day integer,
+    off_day integer,
+    total integer,
+    created_date timestamp without time zone,
+    modified_date timestamp without time zone,
+    CONSTRAINT attendances_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.attendances
+    OWNER to postgres;
+
+
+
+
+-- Table: public.branches
+
+-- DROP TABLE public.branches;
+
+CREATE TABLE public.branches
+(
+    id uuid NOT NULL,
+    branch_name character varying(100) COLLATE pg_catalog."default",
+    branch_head character varying(100) COLLATE pg_catalog."default",
+    CONSTRAINT branches_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.branches
+    OWNER to postgres;
+
+
+
+
+
+-- Table: public.departments
+
+-- DROP TABLE public.departments;
+
+CREATE TABLE public.departments
+(
+    id uuid NOT NULL,
+    department_name character varying(100) COLLATE pg_catalog."default",
+    department_head character varying COLLATE pg_catalog."default",
+    CONSTRAINT departments_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.departments
+    OWNER to postgres;
+
+
+
+
+
+
+-- Table: public.employee_salaries
+
+-- DROP TABLE public.employee_salaries;
+
+CREATE TABLE public.employee_salaries
+(
+    id uuid NOT NULL,
+    employee_id uuid,
+    salary_component_id uuid,
+    amount numeric,
+    CONSTRAINT employee_salaries_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.employee_salaries
+    OWNER to postgres;
+
+
+
+
+
+
+-- Table: public.employees
+
+-- DROP TABLE public.employees;
+
+CREATE TABLE public.employees
+(
+    id uuid NOT NULL,
+    employee_code character varying(25) COLLATE pg_catalog."default",
+    employee_name character varying(50) COLLATE pg_catalog."default",
+    branch_id uuid,
+    department_id uuid,
+    job_title_id uuid,
+    join_date timestamp without time zone,
+    photo character varying(25) COLLATE pg_catalog."default",
+    address character varying(150) COLLATE pg_catalog."default",
+    city character varying(50) COLLATE pg_catalog."default",
+    province character varying(50) COLLATE pg_catalog."default",
+    phone character varying(15) COLLATE pg_catalog."default",
+    email character varying(25) COLLATE pg_catalog."default",
+    national_id_number character varying(25) COLLATE pg_catalog."default",
+    birth_date timestamp without time zone,
+    gender character varying(10) COLLATE pg_catalog."default",
+    religion character varying(10) COLLATE pg_catalog."default",
+    marital_status character varying(10) COLLATE pg_catalog."default",
+    number_of_childs integer,
+    payment_type character varying(10) COLLATE pg_catalog."default",
+    bank_name character varying(50) COLLATE pg_catalog."default",
+    account_number character varying(25) COLLATE pg_catalog."default",
+    tax_id_number character varying(25) COLLATE pg_catalog."default",
+    employee_status character varying(15) COLLATE pg_catalog."default",
+    created_date timestamp without time zone,
+    modified_date timestamp without time zone,
+    CONSTRAINT employees_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.employees
+    OWNER to postgres;
+
+
+
+
+
+-- Table: public.job_titles
+
+-- DROP TABLE public.job_titles;
+
+CREATE TABLE public.job_titles
+(
+    id uuid NOT NULL,
+    title_name character varying(100) COLLATE pg_catalog."default",
+    description character varying(200) COLLATE pg_catalog."default",
+    CONSTRAINT job_titles_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.job_titles
+    OWNER to postgres;
+
+
+
+
+
+
+
+-- Table: public.overtimes
+
+-- DROP TABLE public.overtimes;
+
+CREATE TABLE public.overtimes
+(
+    id uuid NOT NULL,
+    employee_id uuid,
+    month integer,
+    year integer,
+    overtime_date timestamp without time zone,
+    start_hour character varying COLLATE pg_catalog."default",
+    end_hour character varying COLLATE pg_catalog."default",
+    total_in_hours integer,
+    total_in_minutes integer,
+    amount numeric,
+    created_date timestamp without time zone,
+    modified_date timestamp without time zone,
+    day_type character varying COLLATE pg_catalog."default",
+    CONSTRAINT overtimes_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.overtimes
+    OWNER to postgres;
+
+
+
+
+
+
+-- Table: public.salary_components
+
+-- DROP TABLE public.salary_components;
+
+CREATE TABLE public.salary_components
+(
+    id uuid NOT NULL,
+    component_name character varying(100) COLLATE pg_catalog."default",
+    occurance character varying(10) COLLATE pg_catalog."default",
+    default_value numeric,
+    CONSTRAINT salary_components_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.salary_components
+    OWNER to postgres;
+
+
+
+
+
+-- Table: public.users
+
+-- DROP TABLE public.users;
+
+CREATE TABLE public.users
+(
+    id uuid NOT NULL,
+    user_name character varying(25) COLLATE pg_catalog."default",
+    password character varying(25) COLLATE pg_catalog."default",
+    full_name character varying(50) COLLATE pg_catalog."default",
+    is_administrator boolean,
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.users
+    OWNER to postgres;
+
+
+
+
+
+-- Table: public.work_calendars
+
+-- DROP TABLE public.work_calendars;
+
+CREATE TABLE public.work_calendars
+(
+    id uuid NOT NULL,
+    month integer,
+    year integer,
+    work_day integer,
+    off_day integer,
+    CONSTRAINT wwork_calendars_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.work_calendars
+    OWNER to postgres;

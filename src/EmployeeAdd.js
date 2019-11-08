@@ -23,8 +23,7 @@ class EmployeeAdd extends Component
                         <div class="card">
                             <div class="card-body">
                                 <h3>Add Employee</h3>
-                                <br/>
-
+                              
                                 <ul class="nav nav-tabs">
                                 <li class="nav-item">
                                     <a class="nav-link active" data-toggle="tab" href="#general">GENERAL</a>

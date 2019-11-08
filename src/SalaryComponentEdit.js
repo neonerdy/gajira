@@ -5,17 +5,37 @@ import NavBar from './NavBar';
 import Header from './Header';
 
 
-class SalaryComponentAdd extends Component
+class SalaryComponentEdit extends Component
 {
 
     constructor(props) {
         super(props);
         this.state = {
             error: {},
+            id: '',
             componentName: '',
             occurance: '',
             defaultValue: ''
         }
+     }
+
+     componentDidMount() {
+
+        let id = this.props.match.params.id;
+        this.getSalaryComponentById(id);
+     }
+
+
+     getSalaryComponentById = (id) => {
+
+        axios.get(config.serverUrl + '/api/salarycomponent/getbyid/' + id).then(response=> {
+             this.setState({
+                 id: response.data.id,
+                 componentName: response.data.componentName,
+                 occurance: response.data.occurance,
+                 defaultValue: response.data.defaultValue
+             })
+         })
      }
 
 
@@ -51,7 +71,7 @@ class SalaryComponentAdd extends Component
     }
 
 
-    saveSalaryComponent = () => {
+    updateSalaryComponent = () => {
 
         
         let isValid = this.validateSalaryComponent();
@@ -59,21 +79,22 @@ class SalaryComponentAdd extends Component
         if (isValid) 
         {
             let salaryComponent = {
+                id: this.state.id,
                 componentName: this.state.componentName,
                 occurance: this.state.occurance,
                 defaultValue: this.state.defaultValue === ''?0 : this.state.defaultValue
             }
 
-            axios.post(config.serverUrl + '/api/salarycomponent/save', salaryComponent).then(response=> {
+            axios.put(config.serverUrl + '/api/salarycomponent/update', salaryComponent).then(response=> {
                 this.props.history.push('/master-data');
             })
 
         }
 
-
     }
 
-    cancelAdd = () =>{
+
+    cancelUpdate = () =>{
         this.props.history.push('/master-data');
     }
 
@@ -102,19 +123,19 @@ class SalaryComponentAdd extends Component
                         <div class="card">
                             <div class="card-body">
 
-                                 <h3>Add Salary Component</h3>
+                                 <h3>Edit Salary Component</h3>
                                 <br/>
 
                                 <div class="form-group  row"><label class="col-md-3 control-label" style={{textAlign:'right'}}>Component Name</label>
                                     <div class="col-md-7 col-sm-12 required"><input type="text" class="form-control" 
-                                        name="componentName" onChange={this.onValueChange}/>
+                                        name="componentName" onChange={this.onValueChange} value={this.state.componentName}/>
                                     </div>
                                     &nbsp;&nbsp;<span style={errStyle}>{this.state.error.componentName}</span>
                                 </div>
 
                                 <div class="form-group  row"><label class="col-md-3 control-label" style={{textAlign:'right'}}>Occurance</label>
                                     <div class="col-md-7 col-sm-12 required">
-                                        <select class="form-control" name="occurance" onChange={this.onValueChange}>
+                                        <select class="form-control" name="occurance" onChange={this.onValueChange} value={this.state.occurance}>
                                             <option value=""></option>
                                             <option value="Monthly">Monthly</option>
                                             <option value="Daily">Daily</option>
@@ -125,16 +146,15 @@ class SalaryComponentAdd extends Component
 
                                 <div class="form-group  row"><label class="col-md-3 control-label" style={{textAlign:'right'}}>Default Value</label>
                                     <div class="col-md-7 col-sm-12"><input type="text" class="form-control" 
-                                        name="defaultValue" onChange={this.onValueChange}/>
+                                        name="defaultValue" onChange={this.onValueChange} value={this.state.defaultValue}/>
                                     </div>
                                 </div>
-
 
                                 <br/><br/>
 
                                 <div class="text-right">
-                                    <button type="button" class="btn btn-bold btn-pure btn-secondary" onClick={this.cancelAdd}>CANCEL</button>
-                                    <button class="btn btn-label btn-info" onClick={this.saveSalaryComponent}><label><i class="ti-check"></i></label> SAVE</button>
+                                    <button type="button" class="btn btn-bold btn-pure btn-secondary" onClick={this.cancelUpdate}>CANCEL</button>
+                                    <button class="btn btn-label btn-info" onClick={this.updateSalaryComponent}><label><i class="ti-check"></i></label> UPDATE</button>
                                 </div>
 
                             </div>
@@ -155,5 +175,5 @@ class SalaryComponentAdd extends Component
 
 }
 
-export default SalaryComponentAdd;
+export default SalaryComponentEdit;
 
