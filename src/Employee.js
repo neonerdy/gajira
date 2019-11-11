@@ -94,7 +94,7 @@ class Employee extends Component
                     </div>
         
                     <div class="media-right text-right d-none d-md-block">
-                      <p style={{color: 'black'}}><i class="fa fa-map-marker pr-1"></i> Mahkota Opal 66, Sentul City Bogor</p>
+                      <p style={{color: 'black'}}> Mahkota Opal 66, Sentul City Bogor</p>
                       <span style={{color: 'black'}}> +62 81593743247</span>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ class Employee extends Component
                       <span>&nbsp;21 Jan, 2017 (2 year 1 month)</span>
                     </div>
                     <div class="card-hover-show">
-                      <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#">Detail</a>
+                       
                       <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#" data-toggle="modal" data-target="#modal-contact">Edit</a>
                       <a class="btn btn-xs fs-10 btn-bold btn-danger" href="#">Delete</a>
                     </div>
@@ -127,7 +127,7 @@ class Employee extends Component
                     </div>
         
                     <div class="media-right text-right d-none d-md-block">
-                      <p style={{color: 'black'}}><i class="fa fa-map-marker pr-1"></i> Daan Mogot 75, Tebet. Jakarta Selatan</p>
+                      <p style={{color: 'black'}}> Daan Mogot 75, Tebet. Jakarta Selatan</p>
                       <span style={{color: 'black'}}>+62 937439474</span>
                     </div>
                   </div>
@@ -138,7 +138,7 @@ class Employee extends Component
                       <span>&nbsp;21 Jan, 2017</span>
                     </div>
                     <div class="card-hover-show">
-                      <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#">Detail</a>
+                       
                       <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#" data-toggle="modal" data-target="#modal-contact">Edit</a>
                       <a class="btn btn-xs fs-10 btn-bold btn-danger" href="#">Delete</a>
                     </div>
@@ -160,7 +160,7 @@ class Employee extends Component
                     </div>
         
                     <div class="media-right text-right d-none d-md-block">
-                      <p style={{color: 'black'}}><i class="fa fa-map-marker pr-1"></i> Daan Mogot 75, Tebet. Jakarta Selatan</p>
+                      <p style={{color: 'black'}}> Kebayoran Lama , Blok M. Jakarta Selatan</p>
                       <span style={{color: 'black'}}> +62 937439474</span>
                     </div>
                   </div>
@@ -171,7 +171,7 @@ class Employee extends Component
                       <span>&nbsp;21 Jan, 2017</span>
                     </div>
                     <div class="card-hover-show">
-                      <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#">Detail</a>
+                       
                       <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#" data-toggle="modal" data-target="#modal-contact">Edit</a>
                       <a class="btn btn-xs fs-10 btn-bold btn-danger" href="#">Delete</a>
                     </div>
@@ -193,7 +193,7 @@ class Employee extends Component
                     </div>
         
                     <div class="media-right text-right d-none d-md-block">
-                      <p style={{color: 'black'}}><i class="fa fa-map-marker pr-1"></i> Daan Mogot 75, Tebet. Jakarta Selatan</p>
+                      <p style={{color: 'black'}}> Perum Kedoya Raya, Grogol. Jakarta Barat</p>
                       <span style={{color: 'black'}}>+62 937439474</span>
                     </div>
                   </div>
@@ -204,7 +204,7 @@ class Employee extends Component
                       <span>&nbsp;21 Jan, 2017</span>
                     </div>
                     <div class="card-hover-show">
-                      <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#">Detail</a>
+                       
                       <a class="btn btn-xs fs-10 btn-bold btn-secondary" href="#" data-toggle="modal" data-target="#modal-contact">Edit</a>
                       <a class="btn btn-xs fs-10 btn-bold btn-danger" href="#">Delete</a>
                     </div>

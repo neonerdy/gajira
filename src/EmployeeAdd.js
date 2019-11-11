@@ -52,18 +52,6 @@ class EmployeeAdd extends Component
                                         </div>
 
 
-                                        <div class="form-group  row"><label class="col-md-3" style={{textAlign:'right'}}>Branch</label>
-                                            <div class="col-md-7 col-sm-12 required">
-                                                <select class="form-control" name="priority" onChange={this.onValueChange}>
-                                                    <option value=""></option>
-                                                    <option value="High">Jakarta</option>
-                                                    <option value="Normal">Bogor</option>
-                                                    <option value="Low">Surabaya</option>
-                                                </select>
-                                            </div>
-                                         </div>
-
-
                                         <div class="form-group  row"><label class="col-md-3" style={{textAlign:'right'}}>Department</label>
                                         <div class="col-md-7 col-sm-12 required">
                                                 <select class="form-control" name="priority" onChange={this.onValueChange}>
@@ -183,9 +171,15 @@ class EmployeeAdd extends Component
 
                                         <div class="divider text-uppercase fw-500">PAYROLL INFO</div>
 
-                                        <div class="form-group  row"><label class="col-md-3" style={{textAlign:'right'}}>Payment Type</label>
-                                            <div class="col-md-7 col-sm-12 required"><input type="text" class="form-control" 
-                                                name="occupation" onChange={this.onValueChange}/>
+                                        <div class="form-group  row"><label class="col-md-3" style={{textAlign:'right'}}>Salary Type</label>
+                                            <div class="col-md-7 col-sm-12 required">
+                                                
+                                                <select class="form-control" name="priority" onChange={this.onValueChange}>
+                                                    <option value=""></option>
+                                                    <option value="High">Daily</option>
+                                                    <option value="Normal">Monthly</option>
+                                                </select>
+                                        
                                             </div>
                                         </div>
 

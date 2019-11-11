@@ -40,7 +40,6 @@ namespace Gajira.Models
         public string Photo { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
-        public List<EmployeeSalary> EmployeeSalary { get; set; }
         
 
     }

@@ -136,7 +136,7 @@ class Payroll extends Component
                                     
                                     <ul class="nav nav-tabs">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#attendance">PAYROLL DETAIL</a>
+                                            <a class="nav-link active" data-toggle="tab" href="#attendance">PAYROLL DETAIL ( Ariyanto )</a>
                                         </li>
                                       
                                     </ul>
@@ -145,17 +145,7 @@ class Payroll extends Component
                                   
                                     <div class="tab-content">
 
-                                      
-                                      
-                                        
-                                        <div class="alert alert-danger" role="alert">
-                                            <h4>Ariyanto</h4>
-                                            Salary : <b>12.000</b>, Deduction : <b>3.000</b>, Total : <b>9.000</b>
-                                        </div>
-
-
-                                        <div class="divider text-uppercase fw-500">SALARY COMPONENT</div>
-
+                                     
                                         <div class="row">
 
                                             <div class="col-md-6 col-xl-3">
@@ -199,6 +189,23 @@ class Payroll extends Component
                                         </div>
 
 
+                                        <div class="divider text-uppercase fw-500">OVER TIME</div>
+
+                                        <div class="row">
+
+                                            {/*}
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card card-body text-center">
+                                                <div class="fs-40 fw-100">0</div>
+                                                <div>Tax</div>
+                                                </div>
+                                            </div>
+                                            {*/}
+                                           
+                                        </div>
+
+
+
                                         <div class="divider text-uppercase fw-500">DEDUCTION</div>
                                         
                                         <div class="row">
@@ -212,17 +219,28 @@ class Payroll extends Component
                                         </div>
 
 
-
-
-
-
-
-
                                     
+
 
                                     </div>
 
+
+
+                                 
+                                    <div class="alert alert-danger" role="alert">
+                                            <b>TOTAL</b>
+                                            <div class="btn-group pull-right">
+                                            Salary : <b>12.000</b>, Deduction : <b>3.000</b>, THP : <b>9.000</b>
+
+                                            </div>
+                                        </div>
+
+                                
+
                                 </div>
+
+                       
+
 
                             </div>
 

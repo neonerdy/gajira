@@ -6,9 +6,7 @@ namespace Gajira.Models
     {
         public Guid ID { get; set; }
         public string DeductionName { get; set; }
-        public decimal PercentageByCompany { get; set; }
-        public decimal PercentageByEmployee { get; set; }
-
+        public decimal PercentageValue { get; set; }
     }
 
 

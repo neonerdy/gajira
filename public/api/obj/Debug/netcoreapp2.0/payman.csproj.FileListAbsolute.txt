@@ -18,3 +18,14 @@ C:\ARI\Project\gajira\public\api\obj\Debug\netcoreapp2.0\payman.AssemblyInfoInpu
 C:\ARI\Project\gajira\public\api\obj\Debug\netcoreapp2.0\payman.AssemblyInfo.cs
 C:\ARI\Project\gajira\public\api\obj\Debug\netcoreapp2.0\payman.dll
 C:\ARI\Project\gajira\public\api\obj\Debug\netcoreapp2.0\payman.pdb
+D:\Repos\Projects\gajira\public\api\bin\Debug\netcoreapp2.0\payman.deps.json
+D:\Repos\Projects\gajira\public\api\bin\Debug\netcoreapp2.0\payman.runtimeconfig.json
+D:\Repos\Projects\gajira\public\api\bin\Debug\netcoreapp2.0\payman.runtimeconfig.dev.json
+D:\Repos\Projects\gajira\public\api\bin\Debug\netcoreapp2.0\payman.dll
+D:\Repos\Projects\gajira\public\api\bin\Debug\netcoreapp2.0\payman.pdb
+D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.csprojAssemblyReference.cache
+D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.csproj.CoreCompileInputs.cache
+D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.AssemblyInfoInputs.cache
+D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.AssemblyInfo.cs
+D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.dll
+D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.pdb
