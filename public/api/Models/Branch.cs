@@ -6,7 +6,8 @@ namespace Gajira.Models
     {
         public Guid ID { get; set; }
         public string BranchName { get; set; }
-        public string BranchHead { get; set; }
+        public string Province { get; set; }
+        public string City { get; set; }
     }
 
 

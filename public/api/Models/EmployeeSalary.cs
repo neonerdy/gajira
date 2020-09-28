@@ -10,7 +10,7 @@ namespace Gajira.Models
         public Guid SalaryComponentId { get; set; }
         public SalaryComponent SalaryComponent { get; set; }
         public decimal Amount { get; set; }
-    
+
     }
 
 

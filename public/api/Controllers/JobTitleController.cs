@@ -24,7 +24,7 @@ namespace Gajira.Controllers
         public async Task<IActionResult> GetAll() 
         {
             var jobTitles = await context.JobTitles
-                .OrderBy(jt=>jt.TitleName)
+                .OrderBy(jt=>jt.JobTitleName)
                 .ToListAsync();
             
             return Ok(jobTitles);

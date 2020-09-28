@@ -41,7 +41,6 @@ namespace Gajira.Controllers
         public async Task<IActionResult> Save([FromBody] Attendance attendance)
         {
             attendance.ID = Guid.NewGuid();
-            attendance.CreatedDate = DateTime.Now;
             context.Add(attendance);
 
             var result = await context.SaveChangesAsync();
@@ -54,7 +53,6 @@ namespace Gajira.Controllers
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] Attendance attendance)
         {
-            attendance.ModifiedDate = DateTime.Now;
             context.Update(attendance);
 
             var result = await context.SaveChangesAsync();
