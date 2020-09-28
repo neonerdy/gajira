@@ -12,6 +12,8 @@ namespace Gajira.Models
         public string Note { get; set; }
         public string Status { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public DateTime ApprovedDate { get; set; }
         public bool IsTaken { get; set; }
 
     }

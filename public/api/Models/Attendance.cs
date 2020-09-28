@@ -14,7 +14,7 @@ namespace Gajira.Models
         public string ClockOut { get; set; }
         public string Status { get; set; }
         public string LateDuration { get; set; }
-        public string Notes { get; set; }     
+        public string Note { get; set; }     
      }
 
 

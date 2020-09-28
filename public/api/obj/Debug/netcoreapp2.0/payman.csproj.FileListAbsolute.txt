@@ -29,3 +29,6 @@ D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.AssemblyInfoI
 D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.AssemblyInfo.cs
 D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.dll
 D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.pdb
+D:\Repos\Projects\gajira\public\api\bin\Debug\netcoreapp2.0\appsettings.Development.json
+D:\Repos\Projects\gajira\public\api\bin\Debug\netcoreapp2.0\appsettings.json
+D:\Repos\Projects\gajira\public\api\obj\Debug\netcoreapp2.0\payman.genruntimeconfig.cache

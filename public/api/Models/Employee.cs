@@ -34,7 +34,7 @@ namespace Gajira.Models
         public string EmploymentStatus { get; set; }
         public Guid ApprovalLineId { get; set; }
         public decimal BasicSalary { get; set; }
-        public string PAymentType { get; set; }
+        public string PaymentType { get; set; }
         public string BankName { get; set; }
         public string BankAccount { get; set; }
         public string NPWP { get; set; }
